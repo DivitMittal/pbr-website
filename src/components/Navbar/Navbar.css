@@ -5,7 +5,12 @@
      align-items: center;
      background: var(--color-black);
      padding: 1rem 2rem;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 99999;
 }
+
 .app_navbar-logo{
      display: flex;
      justify-content: flex-start;
@@ -109,14 +114,23 @@ width: 118px;
           display: flex;
      }
 }
+
 @media screen and (max-width:650px){
 .app_navbar{
      padding: 1rem;
 }
+
 .app_navbar-login{
      display: flex;
 }
+
 .app_navbar-logo img{
      width: 110px;
      }
 }
+
+.scroll-down .app_navbar {
+     transform: translate3d(0, -100%, 0);
+     transition: transform 1.5s;
+}
+
