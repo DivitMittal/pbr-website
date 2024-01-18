@@ -9,12 +9,34 @@ const Navbar = () => {
 
   const handleBookTableClick = () => {
     window.location.href = 'tel:+919118641864';
-    setToggleMenu(false); 
+    setToggleMenu(false);
   };
 
   const handleSmallScreenLinkClick = () => {
-    setToggleMenu(false); 
+    setToggleMenu(false);
   };
+
+  const body = document.body;
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    console.log(currentScroll);
+    if(currentScroll <= 0){
+      body.classList.remove('scroll-down');
+    }
+
+    if(currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
+      body.classList.add('scroll-down')
+    }
+
+    if(currentScroll < lastScroll) {
+      body.classList.remove('scroll-down');
+    }
+
+    lastScroll = currentScroll;
+  })
 
   return (
     <nav className='app_navbar'>
